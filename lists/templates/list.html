@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
-{% block header_text %}Your To-Do list{% endblock %}
+{% block header_text %}
+    Your To-Do list
+{% endblock %}
 
-{% block form_action %}{% url 'view_list' list.id %}{% endblock %}
+{% block form_action %}
+    {% url 'view_list' list.id %}
+{% endblock %}
 
 {% block table %}
     <table id="id_list_table" class="table">
@@ -23,8 +27,8 @@
     <div class="col-md-6">
       <h3>Shared with</h3>
       <ul>
-        {% for sharee in list.shared_with.all %}
-          <li class="list-sharee">{{ sharee.email }}</li>
+        {% for  share in list.shared_with.all %}
+          <li class="list- share">{{ share.email }}</li>
         {% endfor %}
       </ul>
     </div>
@@ -33,12 +37,12 @@
       <h3>Share this list:</h3>
       <form class="form-inline" method="POST" action="{% url 'share_list' list.id %}" >
         {% csrf_token %}
-        <input name="sharee" placeholder="your-friend@example.com" />
+        <input name=" share" placeholder="your-friend@example.com" />
       </form>
         <h3>Shared with</h3>
         <ul>
-            {% for sharee in list.shared_with.all %}
-              <li class="list-sharee">{{ sharee.email }}</li>
+            {% for share in list.shared_with.all %}
+              <li class="list-share">{{ share.email }}</li>
             {% endfor %}
         </ul>
     </div>

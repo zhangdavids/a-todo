@@ -5,8 +5,10 @@ from .my_lists_page import MyListsPage
 
 
 def quit_if_possible(browser):
-    try: browser.quit()
-    except: pass
+    try:
+        browser.quit()
+    except:
+        pass
 
 
 class SharingTest(FunctionalTest):
